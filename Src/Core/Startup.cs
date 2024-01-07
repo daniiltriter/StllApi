@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Stll.Core.Configurations;
+using Stll.Core.Domain;
 
 namespace Stll.Core;
 
@@ -17,6 +20,14 @@ public class Startup
     {
         services.AddSwaggerDocument();
         services.AddControllers();
+        services.AddDbContext<ApplicationContext>(options =>
+        {
+            var dbConnectionName = nameof(ApplicationSettings.DbConnection);
+            var dbConnectionString = _configuration.GetSection(dbConnectionName).Value;
+
+            var sqlVersion = ServerVersion.AutoDetect(dbConnectionString);
+            options.UseMySql(dbConnectionString, sqlVersion);
+        });
     }
 
     public void Configure(IApplicationBuilder app)
