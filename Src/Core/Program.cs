@@ -9,7 +9,7 @@ namespace Stll.Core
     {
         public static void Main()
         {
-            var appSettingsPath = Path.Combine(Environment.CurrentDirectory, "app-settings,json");
+            var appSettingsPath = Path.Combine(Environment.CurrentDirectory, "appsettings.json");
             
             var configurationLoader = new ConfigurationLoader();
             var loaderResponse = configurationLoader.LoadOrCreateJson(appSettingsPath);
