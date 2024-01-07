@@ -1,15 +1,24 @@
-﻿using Core;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-var webHost = new WebHostBuilder()
-    .UseKestrel()
-    .ConfigureServices(services =>
+namespace Stll.Core
+{
+    public class Program
     {
-        services.AddOptions();
-    })
-    .UseStartup<Startup>()
-    .UseUrls()
-    .Build();
+        public static void Main()
+        {
+            var webHost = new WebHostBuilder()
+                .UseKestrel()
+                .ConfigureServices(services =>
+                {
+                    services.AddOptions();
+                })
+                .UseStartup<Startup>()
+                .UseUrls()
+                .Build();
     
-webHost.Run();
+            webHost.Run();
+        }
+    }
+}
+
