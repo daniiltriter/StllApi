@@ -19,13 +19,13 @@ public class AuthenticationService : IAuthenticationService
         var user = await _domain.Users.FirstOrDefaultAsync(u => u.Name == name);
         if (user is null)
         {
-            return AuthenticationResponse.Failed(AuthenticationErrorCodes.InvalidCredentials);
+            return AuthenticationResponse.Failed(AuthenticationErrorCodes.INVALID_CREDENTIALS);
         }
 
         var passwordVerified = _hasher.Verify(password, user.Password);
         if (!passwordVerified)
         {
-            return AuthenticationResponse.Failed(AuthenticationErrorCodes.InvalidCredentials);
+            return AuthenticationResponse.Failed(AuthenticationErrorCodes.INVALID_CREDENTIALS);
         }
 
         var claims = new List<Claim>
