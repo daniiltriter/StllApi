@@ -28,6 +28,7 @@ public class Startup
         servicesBuilder.ApplyModule(new AuthenticateStartupModule(_configuration));
         servicesBuilder.ApplyModule(new DomainStartupModule(_configuration));
         servicesBuilder.ApplyModule(new EndpointsStartupModule());
+        servicesBuilder.ApplyModule(new AssembliesStartupModule());
 
         services.AddMvc();
     }
