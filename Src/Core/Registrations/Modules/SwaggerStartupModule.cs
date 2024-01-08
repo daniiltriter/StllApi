@@ -9,7 +9,6 @@ public class SwaggerStartupModule : IStartupModule
 {
     public void Apply(IServiceCollection services)
     {
-        services.AddSwaggerDocument();
         services.AddSwaggerDocument(settings =>
         {
             settings.DocumentName = "OpenAPI 2";
