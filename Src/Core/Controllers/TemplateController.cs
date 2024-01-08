@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Stll.Core.Domain;
 
 namespace Stll.Core.Controllers;
 
 [ApiController]
-[Route("template")]
+[Route("api/template")]
 public class TemplateController : ControllerBase
 {
     private readonly ApplicationContext _domainContext;
@@ -16,6 +18,6 @@ public class TemplateController : ControllerBase
     [HttpGet]
     public IActionResult Index()
     {
-        return Ok("Hello");
+        return Ok();
     }
 }
