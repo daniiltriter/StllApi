@@ -28,6 +28,9 @@ namespace Stll.Core
                 services.AddOptions();
                 services.Configure<ApplicationSettings>(configurations);
                 
+                var authenticationSection = configurations.GetSection(nameof(ApplicationSettings.Authentication));
+                services.Configure<AuthenticationSection>(authenticationSection);
+                
                 var domainSection = configurations.GetSection(nameof(ApplicationSettings.Domain));
                 services.Configure<DomainSection>(domainSection);
             });

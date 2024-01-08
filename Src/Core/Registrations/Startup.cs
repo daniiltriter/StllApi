@@ -24,6 +24,8 @@ public class Startup
         {
             servicesBuilder.ApplyModule(new SwaggerStartupModule());
         }
+        servicesBuilder.ApplyModule(new ServicesStartupModule());
+        servicesBuilder.ApplyModule(new AuthenticateStartupModule(_configuration));
         servicesBuilder.ApplyModule(new DomainStartupModule(_configuration));
         servicesBuilder.ApplyModule(new EndpointsStartupModule());
 
@@ -33,6 +35,8 @@ public class Startup
     public void Configure(IApplicationBuilder app)
     {
         app.UseRouting();
+        app.UseAuthentication();
+        app.UseAuthorization();
         
         app.UseEndpoints(b => b.MapControllers());
 

@@ -7,6 +7,7 @@ namespace Stll.Core.Controllers;
 
 [ApiController]
 [Route("api/template")]
+[Authorize]
 public class TemplateController : ControllerBase
 {
     private readonly ApplicationContext _domainContext;
