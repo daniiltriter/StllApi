@@ -8,6 +8,7 @@ public class ServicesStartupModule : IStartupModule
 {
     public void Apply(IServiceCollection services)
     {
+        services.AddSingleton<IPasswordHasher, BCryptPasswordHasher>();
         services.AddSingleton<IJwtTokenBuilder, JwtTokenBuilder>();
         services.AddSingleton<IAuthenticationService, AuthenticationService>();
     }
