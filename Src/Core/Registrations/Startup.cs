@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Stll.Core.Registrations.Builders;
@@ -35,11 +36,14 @@ public class Startup
 
     public void Configure(IApplicationBuilder app)
     {
+        app.UseStaticFiles();
+
         app.UseRouting();
         app.UseAuthentication();
         app.UseAuthorization();
         
         app.UseEndpoints(b => b.MapControllers());
+
 
         app.UseOpenApi();
         app.UseSwaggerUi3();

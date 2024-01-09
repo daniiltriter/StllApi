@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Stll.Commands.Helpers;
 using Stll.Core.Helpers;
 using Stll.Core.Registrations.Abstractions;
 using Stll.Domain.Helpers;
@@ -15,10 +16,13 @@ public class AssembliesStartupModule : IStartupModule
         var mediatorAssemblies = new[]
         {
             CoreAssemblyHelper.Assembly,
+            CqrsAssemblyHelper.Assembly
         };
         
         var mapperAssemblies = new[]
         {
+            CqrsAssemblyHelper.Assembly,
+            CoreAssemblyHelper.Assembly,
             DomainAssemblyHelper.Assembly,
             TypesAssemblyHelper.Assembly,
         };
