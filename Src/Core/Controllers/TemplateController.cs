@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Stll.Core.Domain;
 
 namespace Stll.Core.Controllers;
 

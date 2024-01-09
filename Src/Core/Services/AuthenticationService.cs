@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
-using Stll.Core.Domain;
-using Stll.Core.Variables;
+using Stll.Domain.Internal;
+using Stll.Types.Variables;
 
 namespace Stll.Core.Services;
 

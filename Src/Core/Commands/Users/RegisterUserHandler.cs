@@ -2,10 +2,10 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Stll.Core.Domain;
 using Stll.Core.Services;
-using Stll.Core.Types;
-using Stll.Core.Variables;
+using Stll.Domain.Internal;
+using Stll.Types;
+using Stll.Types.Variables;
 
 namespace Stll.Core.Commands.Users;
 

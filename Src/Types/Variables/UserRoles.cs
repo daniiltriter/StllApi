@@ -1,4 +1,4 @@
-﻿namespace Stll.Core.Types;
+﻿namespace Stll.Types.Variables;
 
 public static class UserRoles
 {

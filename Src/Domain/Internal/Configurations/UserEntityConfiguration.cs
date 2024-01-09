@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Stll.Core.Types;
+using Stll.Types;
 
-namespace Stll.Core.Domain.Configurations;
+namespace Stll.Domain.Internal.Configurations;
 
 public class UserEntityConfiguration : IEntityTypeConfiguration<User>
 {

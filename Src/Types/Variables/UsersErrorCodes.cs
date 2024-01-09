@@ -1,4 +1,4 @@
-﻿namespace Stll.Core.Variables;
+﻿namespace Stll.Types.Variables;
 
 public static class UsersErrorCodes
 {

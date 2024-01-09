@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using Stll.Core.Types;
 using Stll.Core.Views.Users;
+using Stll.Types;
+using Stll.Types.Variables;
 
 namespace Stll.Core.Commands.Users;
 
