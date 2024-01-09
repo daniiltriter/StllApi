@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Stll.Shared.Services;
+using Stll.Types.Variables;
 
 namespace Stll.Core.Controllers;
 
@@ -7,23 +9,22 @@ namespace Stll.Core.Controllers;
 [Route("api/files")]
 public class FilesController : ControllerBase
 {
-    private readonly IWebHostEnvironment _environment;
-    public FilesController(IWebHostEnvironment environment)
+    private readonly IFileService _file;
+    public FilesController(IFileService file)
     {
-        _environment = environment;
+        _file = file;
     }
+    
     [HttpGet("java")]
     public async Task<ActionResult> DownloadJava()
     {
-        var wwwrootPath = "wwwroot";
-        var filePath = Path.Combine(wwwrootPath, "openjdk-17_windows.zip");
-        if (System.IO.File.Exists(filePath))
+        var serviceResponse = await _file.AsBytesAsync(IOPaths.WWW_ROOT + IOPaths.WWW_ROOT);
+        if (!serviceResponse.Processed)
         {
-            var fileBytes = System.IO.File.ReadAllBytes(filePath);  
-            return File(fileBytes, "application/octet-stream", "openjdk-17_windows.zip");
+            return BadRequest(serviceResponse.ErrorMessage);
         }
-
-        return NotFound(filePath);
+        
+        return File(serviceResponse.Result, HttpDefaults.OCTET_STREAM_HEADER, IOPaths.JAVA_ARCHIVE);
     }
 
     [HttpGet("minecraft")]

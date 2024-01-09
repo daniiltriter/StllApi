@@ -11,5 +11,6 @@ public class ServicesStartupModule : IStartupModule
         services.AddSingleton<IPasswordHasher, BCryptPasswordHasher>();
         services.AddSingleton<IJwtTokenBuilder, JwtTokenBuilder>();
         services.AddSingleton<IAuthenticationService, AuthenticationService>();
+        services.AddSingleton<IFileService, FileService>();
     }
 }
