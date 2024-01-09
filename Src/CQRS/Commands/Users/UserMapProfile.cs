@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Stll.Core.Views.Users;
+using Stll.CQRS.Commands.Users;
 using Stll.Types;
 using Stll.Types.Variables;
 
@@ -9,7 +9,7 @@ public class UserMapProfile : Profile
 {
     public UserMapProfile()
     {
-        CreateMap<RegisterUserEndpointRequest, RegisterUserCommand>();
+
         CreateMap<RegisterUserCommand, User>()
             .ForMember(_ => _.Role, _ => _.MapFrom(_ => UserRoles.Usual));
     }

@@ -1,4 +1,4 @@
-﻿namespace Stll.Core.Configurations;
+﻿namespace Stll.Shared.Configurations;
 
 public class DomainSection
 {

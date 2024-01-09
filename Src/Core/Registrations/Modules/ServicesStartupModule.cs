@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Stll.Core.Registrations.Abstractions;
-using Stll.Core.Services;
+using Stll.Shared.Services;
 
 namespace Stll.Core.Registrations.Modules;
 

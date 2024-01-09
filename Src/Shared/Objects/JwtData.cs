@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace Stll.Core.Types;
+namespace Stll.Shared.Types;
 
 public class JwtData
 {

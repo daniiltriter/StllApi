@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Stll.Core.Configurations;
 using Stll.Core.Helpers;
 using Stll.Core.Registrations;
+using Stll.Shared.Configurations;
 
 namespace Stll.Core
 {

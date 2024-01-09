@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Stll.Core.Commands.Users;
+using Stll.CQRS.Commands.Users;
 
 namespace Stll.Core.Views.Users;
 

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using Microsoft.Extensions.Configuration;
-using Stll.Core.Configurations;
+using Stll.Shared.Configurations;
 
 namespace Stll.Core.Helpers;
 

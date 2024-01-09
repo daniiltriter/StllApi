@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Stll.Domain.Internal;
 using Stll.Types.Variables;
 
-namespace Stll.Core.Services;
+
+namespace Stll.Shared.Services;
 
 public class AuthenticationService : IAuthenticationService
 {

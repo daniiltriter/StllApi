@@ -2,8 +2,8 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Stll.Core.Commands.Users;
 using Stll.Core.Views.Users;
+using Stll.CQRS.Commands.Users;
 
 namespace Stll.Core.Controllers;
 
@@ -22,7 +22,7 @@ public class UsersController : Controller
 
     [HttpGet]
     [Authorize]
-    public async Task<IActionResult> Get()
+    public IActionResult Get()
     {
         return Ok();
     }

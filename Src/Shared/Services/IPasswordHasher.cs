@@ -1,4 +1,4 @@
-﻿namespace Stll.Core.Services;
+﻿namespace Stll.Shared.Services;
 
 public interface IPasswordHasher
 {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Stll.Core.Configurations;
 using Stll.Core.Registrations.Abstractions;
 using Stll.Domain.Internal;
+using Stll.Shared.Configurations;
 
 namespace Stll.Core.Registrations.Modules;
 

@@ -1,12 +1,11 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
-using System.Text;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Stll.Core.Configurations;
 using Stll.Core.Registrations.Abstractions;
+using Stll.Shared.Configurations;
 
 namespace Stll.Core.Registrations.Modules;
 

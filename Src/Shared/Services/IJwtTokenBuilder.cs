@@ -1,6 +1,6 @@
-﻿using Stll.Core.Types;
+﻿using Stll.Shared.Types;
 
-namespace Stll.Core.Services;
+namespace Stll.Shared.Services;
 
 public interface IJwtTokenBuilder
 {

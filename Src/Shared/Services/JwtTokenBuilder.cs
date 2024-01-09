@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Stll.Core.Configurations;
-using Stll.Core.Types;
+using Stll.Shared.Configurations;
+using Stll.Shared.Types;
 
-namespace Stll.Core.Services;
+namespace Stll.Shared.Services;
 
 public class JwtTokenBuilder : IJwtTokenBuilder
 {

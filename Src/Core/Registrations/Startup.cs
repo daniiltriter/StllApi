@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Stll.Core.Configurations;
 using Stll.Core.Registrations.Builders;
 using Stll.Core.Registrations.Modules;
+using Stll.Shared.Configurations;
 
 namespace Stll.Core.Registrations;
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Stll.Core.Services;
 using Stll.Core.Tokens;
-using Stll.Core.Types;
+using Stll.Shared.Services;
+using Stll.Shared.Types;
 
 namespace Stll.Core.Controllers;
 
