@@ -35,7 +35,7 @@ public class UsersController : Controller
         
         if (!handleResult.Processed)
         {
-            BadRequest(handleResult.Error);
+            return BadRequest(handleResult.Error);
         }
         
         return Ok(handleResult);

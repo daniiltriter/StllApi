@@ -30,8 +30,8 @@ public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, CreatedH
         {
             return CreatedHandlerResult.Failed(UsersErrorCodes.NAME_IS_EMPTY);
         }
-
-        var nameLengthInvalid = request.Name.Length < 6 && request.Name.Length > 32;
+        
+        var nameLengthInvalid = request.Name.Length < 6 || request.Name.Length > 32;
         if (nameLengthInvalid)
         {
             return CreatedHandlerResult.Failed(UsersErrorCodes.NAME_INVALID_LENGTH);
