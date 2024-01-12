@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
+using Stll.Shared.Services;
 
-namespace Stll.Shared.Services;
+namespace Stll.WebAPI.Services;
 
 public class AuthenticationResponse : ServiceResponse<ClaimsIdentity>
 {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Stll.Shared.Services;
 using Stll.WebAPI.Registrations.Abstractions;
+using Stll.WebAPI.Services;
 
 namespace Stll.WebAPI.Registrations.Modules;
 

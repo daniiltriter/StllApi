@@ -1,4 +1,6 @@
-﻿namespace Stll.Shared.Services;
+﻿using Stll.Shared.Services;
+
+namespace Stll.WebAPI.Services;
 
 public interface IFileService
 {

@@ -1,6 +1,7 @@
-﻿using Stll.Types.Variables;
+﻿using Stll.Shared.Services;
+using Stll.Types.Variables;
 
-namespace Stll.Shared.Services;
+namespace Stll.WebAPI.Services;
 
 public class FileService : IFileService
 {

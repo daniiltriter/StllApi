@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Stll.Shared.Services;
+using Stll.WebAPI.Services;
 using Stll.Types.Variables;
 
 namespace Stll.WebAPI.Controllers;
@@ -17,6 +17,7 @@ public class FilesController : ControllerBase
     [HttpGet("java")]
     public async Task<ActionResult> DownloadJava()
     {
+        // TODO: temp solution. Performance trouble. Use file stream and cancellation token
         var serviceResponse = await _file.AsBytesAsync(IOPaths.WWW_ROOT, IOPaths.JAVA_ARCHIVE);
         if (!serviceResponse.Processed)
         {

@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace Stll.Shared.Services;
+namespace Stll.WebAPI.Services;
 
 public interface IAuthenticationService
 {

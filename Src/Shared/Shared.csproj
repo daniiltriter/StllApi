@@ -18,10 +18,11 @@
 
     <ItemGroup>
       <Folder Include="Abstractions" />
+      <Folder Include="Variables" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Forge\Forge.csproj" />
-    </ItemGroup>
+<!--    <ItemGroup>-->
+<!--      <ProjectReference Include="..\Types\Types.csproj" />-->
+<!--    </ItemGroup>-->
 
 </Project>

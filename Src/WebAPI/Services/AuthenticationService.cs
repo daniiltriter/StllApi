@@ -1,10 +1,11 @@
 ﻿using System.Security.Claims;
 using Stll.Domain.Abstractions;
+using Stll.Shared.Services;
 using Stll.Types;
 using Stll.Types.Variables;
 
 
-namespace Stll.Shared.Services;
+namespace Stll.WebAPI.Services;
 
 public class AuthenticationService : IAuthenticationService
 {

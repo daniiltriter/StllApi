@@ -1,2 +1,2 @@
 ﻿// Global using directives
-global using IAuthenticationService = Stll.Shared.Services.IAuthenticationService;
+global using IAuthenticationService = Stll.WebAPI.Services.IAuthenticationService;
