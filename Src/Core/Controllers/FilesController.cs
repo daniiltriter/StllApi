@@ -17,7 +17,7 @@ public class FilesController : ControllerBase
     [HttpGet("java")]
     public async Task<ActionResult> DownloadJava()
     {
-        var serviceResponse = await _file.AsBytesAsync(IOPaths.WWW_ROOT + IOPaths.WWW_ROOT);
+        var serviceResponse = await _file.AsBytesAsync(IOPaths.WWW_ROOT, IOPaths.JAVA_ARCHIVE);
         if (!serviceResponse.Processed)
         {
             return BadRequest(serviceResponse.ErrorMessage);

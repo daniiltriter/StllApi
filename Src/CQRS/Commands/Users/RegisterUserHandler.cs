@@ -1,9 +1,8 @@
 ﻿using System.Text.RegularExpressions;
 using AutoMapper;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Stll.Core.Commands;
-using Stll.Domain.Internal;
+using Stll.Domain.Abstractions;
 using Stll.Shared.Services;
 using Stll.Types;
 using Stll.Types.Variables;
@@ -12,15 +11,15 @@ namespace Stll.CQRS.Commands.Users;
 
 public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, CreateHandlerResult>
 {
-    private readonly IPasswordHasher _hasher;
-    private readonly ApplicationContext _domainContext;
     private readonly IMapper _mapper;
+    private readonly IPasswordHasher _hasher;
+    private readonly IDomainService _domain;
     
-    public RegisterUserHandler(IPasswordHasher hasher, ApplicationContext domainContext, 
+    public RegisterUserHandler(IPasswordHasher hasher, IDomainService domain, 
         IMapper mapper)
     {
         _hasher = hasher;
-        _domainContext = domainContext;
+        _domain = domain;
         _mapper = mapper;
     }
     
@@ -38,8 +37,8 @@ public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, CreateHa
             return CreateHandlerResult.Failed(UsersErrorCodes.NAME_INVALID_LENGTH);
         }
         
-        var userIsExists = await _domainContext.Users.AnyAsync(u => u.Name == request.Name,
-            cancellationToken);
+        // TODO: add Exists method to IDomainService
+        var userIsExists = await _domain.GetContextFor<User>().AnyAsync(u => u.Name == request.Name);
         if (userIsExists)
         {
             return CreateHandlerResult.Failed(UsersErrorCodes.USER_ALREADY_EXISTS);
@@ -67,10 +66,7 @@ public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, CreateHa
         var hashedPassword = _hasher.Crypt(request.Password);
         user.Password = hashedPassword;
 
-        var newEntity = await _domainContext.Users.AddAsync(user, cancellationToken);
-        var entityId = newEntity.Entity.Id; 
-        
-        await _domainContext.SaveChangesAsync(cancellationToken);
-        return CreateHandlerResult.Success(entityId);
+        var newEntityId = await _domain.GetContextFor<User>().CreateAsync(user);
+        return CreateHandlerResult.Success(newEntityId);
     }
 }

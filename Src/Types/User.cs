@@ -1,6 +1,8 @@
-﻿namespace Stll.Types;
+﻿using Stll.Domain.Abstractions;
 
-public class User
+namespace Stll.Types;
+
+public class User : IEntity
 {
     public ulong Id { get; set; }
     public string Name { get; set; }

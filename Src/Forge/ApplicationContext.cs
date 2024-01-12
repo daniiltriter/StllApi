@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Stll.Domain.Internal.Configurations;
+using Stll.Forge.Configurations;
 using Stll.Types;
 
-namespace Stll.Domain.Internal;
+namespace Stll.Forge;
 
 public class ApplicationContext : DbContext
 {

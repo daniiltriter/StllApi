@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Stll.Core.Views.Users;
 using Stll.CQRS.Commands.Users;
+using Stll.Domain.Abstractions;
 
 namespace Stll.Core.Controllers;
 
@@ -13,7 +14,7 @@ public class UsersController : Controller
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
-    
+
     public UsersController(IMediator mediator, IMapper mapper)
     {
         _mediator = mediator;
@@ -24,7 +25,7 @@ public class UsersController : Controller
     [Authorize]
     public async Task<ActionResult<string>> GetAsync()
     {
-        return Ok("Hello World!");
+        return Ok();
     }
     
     [HttpPost]

@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS", "Src\CQRS\CQRS.cspro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Src\Shared\Shared.csproj", "{0424B3B6-29F6-4E63-8A57-5180D14C2D25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forge", "Src\Forge\Forge.csproj", "{1BE70AE2-8CC9-4304-A8CD-FEF3F9DF193A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{0424B3B6-29F6-4E63-8A57-5180D14C2D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0424B3B6-29F6-4E63-8A57-5180D14C2D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0424B3B6-29F6-4E63-8A57-5180D14C2D25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BE70AE2-8CC9-4304-A8CD-FEF3F9DF193A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BE70AE2-8CC9-4304-A8CD-FEF3F9DF193A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BE70AE2-8CC9-4304-A8CD-FEF3F9DF193A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BE70AE2-8CC9-4304-A8CD-FEF3F9DF193A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

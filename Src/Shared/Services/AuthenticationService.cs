@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
-using Microsoft.EntityFrameworkCore;
-using Stll.Domain.Internal;
+using Stll.Domain.Abstractions;
+using Stll.Types;
 using Stll.Types.Variables;
 
 
@@ -8,17 +8,19 @@ namespace Stll.Shared.Services;
 
 public class AuthenticationService : IAuthenticationService
 {
-    private readonly ApplicationContext _domain;
+    private readonly IDomainService _domain;
     private readonly IPasswordHasher _hasher;
-    public AuthenticationService(IPasswordHasher hasher, ApplicationContext domain)
+    public AuthenticationService(IPasswordHasher hasher, IDomainService domain)
     {
         _domain = domain;
         _hasher = hasher;
     }
     public async Task<AuthenticationResponse> AuthenticateAsync(string name, string password)
     {
-        var user = await _domain.Users.FirstOrDefaultAsync(u => u.Name == name);
-        if (user is null)
+        // TODO: add missed checks (name, password length and empty)
+        // TODO: add Exists method to IDomainService
+        var user = await _domain.GetContextFor<User>().FindAsync(u => u.Name == name);
+        if (user == null)
         {
             return AuthenticationResponse.Failed(AuthenticationErrorCodes.INVALID_CREDENTIALS);
         }
