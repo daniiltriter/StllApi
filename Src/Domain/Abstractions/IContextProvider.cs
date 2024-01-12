@@ -1,4 +1,6 @@
-﻿namespace Stll.Domain.Abstractions;
+﻿using System.Linq.Expressions;
+
+namespace Stll.Domain.Abstractions;
 
 public interface IContextProvider<TEntity> where TEntity : class, IEntity
 {
@@ -9,4 +11,6 @@ public interface IContextProvider<TEntity> where TEntity : class, IEntity
     Task<bool> RemoveAsync(ulong id);
     
     Task<TEntity> FindAsync(ulong id);
+
+    Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter);
 }

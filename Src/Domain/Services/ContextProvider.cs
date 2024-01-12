@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Stll.Domain.Abstractions;
 
@@ -78,5 +79,18 @@ public class ContextProvider<TEntity, TContext> : IContextProvider<TEntity>
         
         var entity = await context.Set<TEntity>().FindAsync(id);
         return entity;
+    }
+
+    public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter)
+    {
+        if (filter == null)
+        {
+            throw new ArgumentException(null, nameof(filter));
+        }
+        
+        using var scope = _scopeFactory.CreateScope();
+        var context = scope.ServiceProvider.GetRequiredService<TContext>();
+        
+        return await context.Set<TEntity>().AnyAsync(filter);
     }
 }
