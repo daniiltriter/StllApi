@@ -44,7 +44,6 @@ public class Startup
         
         app.UseEndpoints(b => b.MapControllers());
 
-
         app.UseOpenApi();
         app.UseSwaggerUi3();
     }

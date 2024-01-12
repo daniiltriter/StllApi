@@ -17,6 +17,7 @@ public class AuthenticationService : IAuthenticationService
     }
     public async Task<AuthenticationResponse> AuthenticateAsync(string name, string password)
     {
+        // TODO: add missed checks (name, password length and empty)
         // TODO: add Exists method to IDomainService
         var user = await _domain.Users.FirstOrDefaultAsync(u => u.Name == name);
         if (user is null)

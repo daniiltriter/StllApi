@@ -3,7 +3,7 @@ using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Stll.Core.Commands;
-using Stll.Domain.Internal;
+using Stll.Forge;
 using Stll.Shared.Services;
 using Stll.Types;
 using Stll.Types.Variables;
@@ -13,14 +13,14 @@ namespace Stll.CQRS.Commands.Users;
 public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, CreateHandlerResult>
 {
     private readonly IPasswordHasher _hasher;
-    private readonly ApplicationContext _domainContext;
+    private readonly ApplicationContext _domain;
     private readonly IMapper _mapper;
     
-    public RegisterUserHandler(IPasswordHasher hasher, ApplicationContext domainContext, 
+    public RegisterUserHandler(IPasswordHasher hasher, ApplicationContext domain, 
         IMapper mapper)
     {
         _hasher = hasher;
-        _domainContext = domainContext;
+        _domain = domain;
         _mapper = mapper;
     }
     
@@ -38,7 +38,8 @@ public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, CreateHa
             return CreateHandlerResult.Failed(UsersErrorCodes.NAME_INVALID_LENGTH);
         }
         
-        var userIsExists = await _domainContext.Users.AnyAsync(u => u.Name == request.Name,
+        // TODO: add Exists method to IDomainService
+        var userIsExists = await _domain.Users.AnyAsync(u => u.Name == request.Name,
             cancellationToken);
         if (userIsExists)
         {
@@ -67,10 +68,7 @@ public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, CreateHa
         var hashedPassword = _hasher.Crypt(request.Password);
         user.Password = hashedPassword;
 
-        var newEntity = await _domainContext.Users.AddAsync(user, cancellationToken);
-        var entityId = newEntity.Entity.Id; 
-        
-        await _domainContext.SaveChangesAsync(cancellationToken);
-        return CreateHandlerResult.Success(entityId);
+        var newEntity = await _domain.Users.AddAsync(user, cancellationToken);
+        return CreateHandlerResult.Success(newEntity.Entity.Id);
     }
 }

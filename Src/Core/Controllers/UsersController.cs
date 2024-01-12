@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Stll.Core.Views.Users;
 using Stll.CQRS.Commands.Users;
+using Stll.Domain.Abstractions;
+using Stll.Types;
 
 namespace Stll.Core.Controllers;
 
@@ -13,18 +14,22 @@ public class UsersController : Controller
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
+    private readonly IDomainService _domain;
     
-    public UsersController(IMediator mediator, IMapper mapper)
+    public UsersController(IMediator mediator, IMapper mapper, IDomainService domain)
     {
         _mediator = mediator;
         _mapper = mapper;
+        _domain = domain;
     }
 
     [HttpGet]
-    [Authorize]
+    //[Authorize]
     public async Task<ActionResult<string>> GetAsync()
     {
-        return Ok("Hello World!");
+        var user = await _domain.GetContextFor<User>().FindAsync(4);
+        
+        return Ok(user);
     }
     
     [HttpPost]

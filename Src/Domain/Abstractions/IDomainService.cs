@@ -1,6 +1,4 @@
-﻿using Stll.Domain.Abstractions;
-
-namespace Stll.Domain.Abstractions;
+﻿namespace Stll.Domain.Abstractions;
 
 public interface IDomainService
 {

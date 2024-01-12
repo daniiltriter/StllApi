@@ -7,4 +7,12 @@
         <RootNamespace>Stll.Types</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Abstractions" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Domain\Domain.csproj" />
+    </ItemGroup>
+
 </Project>

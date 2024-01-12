@@ -2,5 +2,5 @@
 
 public interface IHasId
 {
-    ulong Id { get; }
+    ulong Id { get; set; }
 }
