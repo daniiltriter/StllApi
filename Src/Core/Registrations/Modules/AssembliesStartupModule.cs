@@ -1,10 +1,8 @@
-﻿using System.Reflection;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Stll.Commands.Helpers;
 using Stll.Core.Helpers;
 using Stll.Core.Registrations.Abstractions;
-using Stll.Domain.Helpers;
 using Stll.Types.Assemblies;
 
 namespace Stll.Core.Registrations.Modules;
@@ -23,7 +21,6 @@ public class AssembliesStartupModule : IStartupModule
         {
             CqrsAssemblyHelper.Assembly,
             CoreAssemblyHelper.Assembly,
-            DomainAssemblyHelper.Assembly,
             TypesAssemblyHelper.Assembly,
         };
         

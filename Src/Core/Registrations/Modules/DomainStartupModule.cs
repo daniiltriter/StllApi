@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Stll.Core.Registrations.Abstractions;
-using Stll.Domain.Internal;
+using Stll.Forge;
 using Stll.Shared.Configurations;
 
 namespace Stll.Core.Registrations.Modules;

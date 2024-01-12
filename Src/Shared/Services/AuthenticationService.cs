@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
-using Stll.Domain.Internal;
+using Stll.Forge;
 using Stll.Types.Variables;
 
 
@@ -17,6 +17,7 @@ public class AuthenticationService : IAuthenticationService
     }
     public async Task<AuthenticationResponse> AuthenticateAsync(string name, string password)
     {
+        // TODO: add Exists method to IDomainService
         var user = await _domain.Users.FirstOrDefaultAsync(u => u.Name == name);
         if (user is null)
         {
