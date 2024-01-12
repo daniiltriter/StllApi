@@ -22,9 +22,9 @@ public class UsersController : Controller
 
     [HttpGet]
     [Authorize]
-    public IActionResult Get()
+    public async Task<ActionResult<string>> GetAsync()
     {
-        return Ok();
+        return Ok("Hello World!");
     }
     
     [HttpPost]

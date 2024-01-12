@@ -51,7 +51,7 @@ public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, CreateHa
             return CreateHandlerResult.Failed(UsersErrorCodes.PASSWORD_IS_EMPTY);
         }
 
-        var passwordLengthInvalid = request.Password.Length < 6 && request.Password.Length > 128;
+        var passwordLengthInvalid = request.Password.Length < 6 || request.Password.Length > 128;
         if (passwordLengthInvalid)
         {
             return CreateHandlerResult.Failed(UsersErrorCodes.PASSWORD_INVALID_LENGTH);
@@ -64,7 +64,8 @@ public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, CreateHa
         }
         
         var user = _mapper.Map<User>(request);
-        user.Password = _hasher.Crypt(request.Password);
+        var hashedPassword = _hasher.Crypt(request.Password);
+        user.Password = hashedPassword;
 
         var newEntity = await _domainContext.Users.AddAsync(user, cancellationToken);
         var entityId = newEntity.Entity.Id; 
