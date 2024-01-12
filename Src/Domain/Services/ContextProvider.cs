@@ -81,6 +81,20 @@ public class ContextProvider<TEntity, TContext> : IContextProvider<TEntity>
         return entity;
     }
 
+    public async Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> filter)
+    {
+        if (filter == null)
+        {
+            throw new ArgumentException(null, nameof(filter));
+        }
+        
+        using var scope = _scopeFactory.CreateScope();
+        var context = scope.ServiceProvider.GetRequiredService<TContext>();
+        
+        var entity = await context.Set<TEntity>().FirstOrDefaultAsync(filter);
+        return entity;
+    }
+
     public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter)
     {
         if (filter == null)

@@ -11,6 +11,7 @@ public interface IContextProvider<TEntity> where TEntity : class, IEntity
     Task<bool> RemoveAsync(ulong id);
     
     Task<TEntity> FindAsync(ulong id);
+    Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> filter);
 
     Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter);
 }
