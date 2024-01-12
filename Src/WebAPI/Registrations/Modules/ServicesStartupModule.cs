@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Stll.Core.Registrations.Abstractions;
 using Stll.Shared.Services;
+using Stll.WebAPI.Registrations.Abstractions;
 
-namespace Stll.Core.Registrations.Modules;
+namespace Stll.WebAPI.Registrations.Modules;
 
 public class ServicesStartupModule : IStartupModule
 {

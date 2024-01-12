@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Stll.Core.Registrations.Abstractions;
+namespace Stll.WebAPI.Registrations.Abstractions;
 
 public interface IStartupModule
 {

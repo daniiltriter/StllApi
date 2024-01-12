@@ -1,6 +1,6 @@
-﻿namespace Stll.Core.Views.Users;
+﻿namespace Stll.WebAPI.Tokens;
 
-public class RegisterUserEndpointRequest
+public class JwtTokenRequest
 {
     public string Name { get; set; }
     public string Password { get; set; }

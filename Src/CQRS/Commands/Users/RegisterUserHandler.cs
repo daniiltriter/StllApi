@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using AutoMapper;
 using MediatR;
-using Stll.Core.Commands;
+using Stll.WebAPI.Commands;
 using Stll.Domain.Abstractions;
 using Stll.Shared.Services;
 using Stll.Types;

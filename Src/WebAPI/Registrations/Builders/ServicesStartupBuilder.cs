@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Stll.Core.Registrations.Abstractions;
+using Stll.WebAPI.Registrations.Abstractions;
 
-namespace Stll.Core.Registrations.Builders;
+namespace Stll.WebAPI.Registrations.Builders;
 
 public class StartupServicesBuilder
 {

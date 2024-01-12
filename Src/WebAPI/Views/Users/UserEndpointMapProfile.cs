@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Stll.CQRS.Commands.Users;
 
-namespace Stll.Core.Views.Users;
+namespace Stll.WebAPI.Views.Users;
 
 public class UserEndpointMapProfile : Profile
 {

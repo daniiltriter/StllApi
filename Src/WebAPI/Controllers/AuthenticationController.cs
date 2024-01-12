@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Stll.Core.Tokens;
 using Stll.Shared.Services;
 using Stll.Shared.Types;
+using Stll.WebAPI.Tokens;
 
-namespace Stll.Core.Controllers;
+namespace Stll.WebAPI.Controllers;
 
 [ApiController]
 public class AuthenticationController : ControllerBase

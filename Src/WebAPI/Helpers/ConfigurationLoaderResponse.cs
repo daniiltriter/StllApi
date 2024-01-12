@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace Stll.Core.Helpers;
+namespace Stll.WebAPI.Helpers;
 
 public class ConfigurationLoaderResponse
 {

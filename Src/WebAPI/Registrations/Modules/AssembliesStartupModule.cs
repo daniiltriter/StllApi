@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Stll.Commands.Helpers;
-using Stll.Core.Helpers;
-using Stll.Core.Registrations.Abstractions;
+using Stll.WebAPI.Helpers;
+using Stll.WebAPI.Registrations.Abstractions;
 
-namespace Stll.Core.Registrations.Modules;
+namespace Stll.WebAPI.Registrations.Modules;
 
 public class AssembliesStartupModule : IStartupModule
 {

@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Stll.Core.Registrations.Abstractions;
 using Stll.Shared.Configurations;
+using Stll.WebAPI.Registrations.Abstractions;
 
-namespace Stll.Core.Registrations.Modules;
+namespace Stll.WebAPI.Registrations.Modules;
 
 public class AuthenticateStartupModule : IStartupModule
 {

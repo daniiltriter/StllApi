@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using NSwag;
 using NSwag.Generation.Processors.Security;
-using Stll.Core.Registrations.Abstractions;
+using Stll.WebAPI.Registrations.Abstractions;
 
-namespace Stll.Core.Registrations.Modules;
+namespace Stll.WebAPI.Registrations.Modules;
 
 public class SwaggerStartupModule : IStartupModule
 {

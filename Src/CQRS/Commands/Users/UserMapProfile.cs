@@ -3,7 +3,7 @@ using Stll.CQRS.Commands.Users;
 using Stll.Types;
 using Stll.Types.Variables;
 
-namespace Stll.Core.Commands.Users;
+namespace Stll.WebAPI.Commands.Users;
 
 public class UserMapProfile : Profile
 {

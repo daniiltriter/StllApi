@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Stll.Core.Registrations.Abstractions;
 using Stll.Domain.IoC;
 using Stll.Forge;
 using Stll.Shared.Configurations;
 using Stll.Types;
+using Stll.WebAPI.Registrations.Abstractions;
 
-namespace Stll.Core.Registrations.Modules;
+namespace Stll.WebAPI.Registrations.Modules;
 
 public class DomainStartupModule : IStartupModule
 {

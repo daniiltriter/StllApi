@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Stll.Core.Registrations.Builders;
-using Stll.Core.Registrations.Modules;
 using Stll.Shared.Configurations;
+using Stll.WebAPI.Registrations.Builders;
+using Stll.WebAPI.Registrations.Modules;
 
-namespace Stll.Core.Registrations;
+namespace Stll.WebAPI.Registrations;
 
 public class Startup
 {

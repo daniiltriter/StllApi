@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using Stll.Core.Commands;
+using Stll.WebAPI.Commands;
 
 namespace Stll.CQRS.Commands.Users;
 

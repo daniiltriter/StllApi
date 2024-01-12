@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Stll.Core.Helpers;
+namespace Stll.WebAPI.Helpers;
 
 public static class CoreAssemblyHelper
 {

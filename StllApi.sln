@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Src\Core\Core.csproj", "{EA61252E-97E9-4C3C-8D62-64C74DA65A9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "Src\WebAPI\WebAPI.csproj", "{EA61252E-97E9-4C3C-8D62-64C74DA65A9D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Src\Domain\Domain.csproj", "{0D3D43BB-DB36-4BA3-A877-794256BBF580}"
 EndProject

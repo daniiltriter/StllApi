@@ -2,11 +2,11 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Stll.Core.Views.Users;
 using Stll.CQRS.Commands.Users;
 using Stll.Domain.Abstractions;
+using Stll.WebAPI.Views.Users;
 
-namespace Stll.Core.Controllers;
+namespace Stll.WebAPI.Controllers;
 
 [ApiController]
 [Route("api/users")]

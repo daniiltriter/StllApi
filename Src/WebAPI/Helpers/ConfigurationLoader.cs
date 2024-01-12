@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Stll.Shared.Configurations;
 
-namespace Stll.Core.Helpers;
+namespace Stll.WebAPI.Helpers;
 
 public class ConfigurationLoader
 {

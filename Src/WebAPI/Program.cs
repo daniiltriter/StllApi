@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Stll.Core.Helpers;
-using Stll.Core.Registrations;
 using Stll.Shared.Configurations;
+using Stll.WebAPI.Helpers;
+using Stll.WebAPI.Registrations;
 
-namespace Stll.Core
+namespace Stll.WebAPI
 {
     public class Program
     {

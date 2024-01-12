@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Stll.Core.Tokens;
+namespace Stll.WebAPI.Tokens;
 
 public class JwtGenerationResult
 {

@@ -1,4 +1,4 @@
-﻿namespace Stll.Core.Commands;
+﻿namespace Stll.WebAPI.Commands;
 
 public class CreateHandlerResult : AbstractHandlerResult
 {

@@ -2,7 +2,7 @@
 using Stll.Shared.Services;
 using Stll.Types.Variables;
 
-namespace Stll.Core.Controllers;
+namespace Stll.WebAPI.Controllers;
 
 [ApiController]
 [Route("api/files")]
