@@ -19,6 +19,7 @@ public class AuthenticateStartupModule : IStartupModule
     }
     public void Apply(IServiceCollection services)
     {
+        services.AddDataProtection();
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
         {
             options.SaveToken = true;
