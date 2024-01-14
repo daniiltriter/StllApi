@@ -1,6 +1,6 @@
-﻿using Stll.WebAPI.Commands;
+﻿using Stll.CQRS.Abstractions;
 
-namespace Stll.CQRS.Commands;
+namespace Stll.CQRS.Results;
 
 public class CreateCatcherResult : AbstractCatcherResult
 {

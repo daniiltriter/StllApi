@@ -1,7 +1,7 @@
 ﻿using System.Collections.Immutable;
 using System.Reflection;
 
-namespace Stll.WebAPI.Commands.IoC;
+namespace Stll.CQRS.IoC;
 
 public class AssemblySettings
 {

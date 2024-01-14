@@ -1,4 +1,6 @@
-﻿namespace Stll.WebAPI.Commands;
+﻿using Stll.CQRS.Abstractions;
+
+namespace Stll.WebAPI.Commands;
 
 public class CreateHandlerResult : AbstractHandlerResult
 {

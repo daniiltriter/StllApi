@@ -1,9 +1,8 @@
-﻿using Stll.CQRS.Commands;
-using Stll.WebAPI.Commands;
+﻿using Stll.Commands.Commands;
 
 namespace Commands.Tests.Commands;
 
-public class CreatePingCommand : CatcherCommand<CreateCatcherResult>
+public class CreatePingCommand : CreateCatcherCommand
 {
     
 }

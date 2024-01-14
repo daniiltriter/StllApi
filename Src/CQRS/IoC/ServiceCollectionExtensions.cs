@@ -1,19 +1,44 @@
-﻿using MediatR;
+﻿using System.Reflection;
+using AutoMapper.Internal;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Stll.WebAPI.Commands.Services;
+using Stll.CQRS.Abstractions;
+using Stll.CQRS.Services;
 
-namespace Stll.WebAPI.Commands.IoC;
+namespace Stll.CQRS.Commands.IoC;
 
 public static class ServiceCollectionExtensions
 {
-    public static void AddCatcher(this IServiceCollection services, Action<AssemblySettings> settingsModifier)
+    public static void AddCatcher(this IServiceCollection services,  Assembly assembly)
     {
-        var settings = new AssemblySettings();
-        settingsModifier(settings);
-        
-        var assemblies = settings.GetAssemblies();
-        services.AddMediatR(assemblies);
-
         services.AddSingleton<ICatcher, MediatorCatcher>();
+        var assemblyTypes = assembly.GetTypes();
+        foreach (var registerCandidate in assemblyTypes)
+        {
+            var interfaces = registerCandidate.GetInterfaces();
+            if (!interfaces.Any())
+            {
+                continue;
+            }
+            
+            var handlerInterface = interfaces.FirstOrDefault(IsHandler);
+            if (handlerInterface is null)
+            {
+                continue;
+            }
+
+            services.AddSingleton(handlerInterface, registerCandidate);
+        }
+    }
+    
+    private static bool IsHandler(Type @interface)
+    {
+        var generics = @interface.GetGenericArguments();
+        if (!generics.Any())
+        {
+            return false;
+        }
+        var handlerType = typeof(ICatcherHandler<,>).MakeGenericType(generics);
+        return @interface == handlerType;
     }
 }

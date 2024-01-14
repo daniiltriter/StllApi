@@ -1,22 +1,28 @@
 ﻿using MediatR;
+using Stll.CQRS.Abstractions;
 
-namespace Stll.WebAPI.Commands.Services;
+namespace Stll.CQRS.Services;
 
 public class MediatorCatcher : ICatcher
 {
-    private readonly IMediator _mediator;
-    
-    public MediatorCatcher(IMediator mediator)
+    private readonly IServiceProvider _services;
+    //private readonly IDictionary<Type, Type> _handlers = new Dictionary<Type, Type>();
+
+    public MediatorCatcher(IServiceProvider services)
     {
-        _mediator = mediator;
+        _services = services;
     }
     
-    public async Task<TResult> SafeExecuteAsync<TResult>(CatcherCommand<TResult> command) where TResult : AbstractCatcherResult, new()
+    public async Task<TResult> SafeExecuteAsync<TCommand, TResult>(TCommand command) 
+        where TResult : AbstractCatcherResult, new()
+        where TCommand : AbstractCatcherCommand<TResult>
     {
         try
         {
-            var handleResult = await _mediator.Send(command);
-            return handleResult;
+            var handlerType = typeof(ICatcherHandler<,>).MakeGenericType(command.GetType(), typeof(TResult));
+            var handlerService = _services.GetService(handlerType) ;
+            var handler = handlerService as ICatcherHandler<TCommand, TResult>;
+            return await handler.HandleAsync(command, new CancellationToken());
         }
         catch (Exception ex)
         {
