@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Stll.Commands.Helpers;
+namespace Stll.CQRS.Helpers;
 
 public static class CqrsAssemblyHelper
 {

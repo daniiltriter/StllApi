@@ -11,7 +11,7 @@ public class MediatorCatcher : ICatcher
         _mediator = mediator;
     }
     
-    public async Task<TResult> SafeExecuteAsync<TResult>(CatcherCommand<TResult> command) where TResult : CatcherResult, new()
+    public async Task<TResult> SafeExecuteAsync<TResult>(CatcherCommand<TResult> command) where TResult : AbstractCatcherResult, new()
     {
         try
         {

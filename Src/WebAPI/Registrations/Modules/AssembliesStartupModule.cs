@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Stll.Commands.Helpers;
+using Stll.CQRS.Helpers;
 using Stll.WebAPI.Helpers;
 using Stll.WebAPI.Registrations.Abstractions;
 

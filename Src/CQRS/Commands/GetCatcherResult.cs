@@ -1,8 +1,8 @@
 ﻿using Stll.WebAPI.Commands;
 
-namespace Stll.Commands.Commands;
+namespace Stll.CQRS.Commands;
 
-public class GetCatcherResult<TEntity> : CatcherResult
+public class GetCatcherResult<TEntity> : AbstractCatcherResult
 {
     public ICollection<TEntity> Entities { get; set; } 
 }

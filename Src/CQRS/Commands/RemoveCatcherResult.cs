@@ -1,6 +1,6 @@
 ﻿using Stll.WebAPI.Commands;
 
-namespace Stll.Commands.Commands;
+namespace Stll.CQRS.Commands;
 
-public class RemoveCatcherResult : CatcherResult
+public class RemoveCatcherResult : AbstractCatcherResult
 {}

@@ -1,8 +1,8 @@
 ﻿using Stll.WebAPI.Commands;
 
-namespace Stll.Commands.Commands;
+namespace Stll.CQRS.Commands;
 
-public class UpdateCatcherResult : CatcherResult
+public class UpdateCatcherResult : AbstractCatcherResult
 {
     public uint AffectedCount { get; set; }
 }

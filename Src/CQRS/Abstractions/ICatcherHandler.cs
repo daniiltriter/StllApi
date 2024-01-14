@@ -2,11 +2,14 @@
 
 namespace Stll.WebAPI.Commands;
 
-public interface ICatcherHandler<TResult>: IRequestHandler<CatcherCommand<TResult>, TResult>
+public interface ICatcherHandler<TResult> : IRequestHandler<CatcherCommand<TResult>, TResult>
+    where TResult : AbstractCatcherResult, new()
 {
-    Task<TResult> ExecuteAsync(CatcherCommand<TResult> command);
-    private async Task<TResult> Handle(CatcherCommand<TResult> request, CancellationToken cancellationToken)
+    async Task<TResult> IRequestHandler<CatcherCommand<TResult>, TResult>.Handle(CatcherCommand<TResult> request, 
+        CancellationToken cancellationToken)
     {
         return await ExecuteAsync(request);
     }
+
+    Task<TResult> ExecuteAsync(CatcherCommand<TResult> request);
 }

@@ -1,8 +1,8 @@
 ﻿using Stll.WebAPI.Commands;
 
-namespace Stll.Commands.Commands;
+namespace Stll.CQRS.Commands;
 
-public class CreateCatcherResult : CatcherResult
+public class CreateCatcherResult : AbstractCatcherResult
 {
     public ulong CreatedId { get; set; }
 }
