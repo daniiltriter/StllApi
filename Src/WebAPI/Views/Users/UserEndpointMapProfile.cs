@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Stll.CQRS.Commands.Users;
+using Stll.Commands.Users;
 
 namespace Stll.WebAPI.Views.Users;
 

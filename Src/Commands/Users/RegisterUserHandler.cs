@@ -7,7 +7,7 @@ using Stll.Shared.Services;
 using Stll.Types;
 using Stll.Types.Variables;
 
-namespace Stll.CQRS.Commands.Users;
+namespace Stll.Commands.Users;
 
 public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, CreateHandlerResult>
 {

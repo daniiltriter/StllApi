@@ -2,8 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Stll.CQRS.Commands.Users;
-using Stll.Domain.Abstractions;
+using Stll.Commands.Users;
 using Stll.WebAPI.Views.Users;
 
 namespace Stll.WebAPI.Controllers;

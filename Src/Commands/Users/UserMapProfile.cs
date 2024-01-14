@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using Stll.CQRS.Commands.Users;
 using Stll.Types;
 using Stll.Types.Variables;
 
-namespace Stll.WebAPI.Commands.Users;
+namespace Stll.Commands.Users;
 
 public class UserMapProfile : Profile
 {

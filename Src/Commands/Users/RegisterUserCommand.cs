@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Stll.WebAPI.Commands;
 
-namespace Stll.CQRS.Commands.Users;
+namespace Stll.Commands.Users;
 
 public class RegisterUserCommand : IRequest<CreateHandlerResult>
 {
