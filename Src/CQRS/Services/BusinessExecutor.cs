@@ -59,9 +59,19 @@ public class BusinessExecutor : IBusinessExecutor
         throw new NotImplementedException();
     }
 
-    public Task<CreateCatcherResult> CreateSendAsync<TCommand>(TCommand command) where TCommand : CreateCatcherCommand
+    public async Task<CreateCatcherResult> CreateSendAsync<TCommand>(TCommand command) where TCommand : CreateCatcherCommand
     {
-        throw new NotImplementedException();
+        try
+        {
+            var handlerType = typeof(ICatcherHandler<,>).MakeGenericType(command.GetType(), typeof(CreateCatcherResult));
+            var handlerService = _services.GetService(handlerType) ;
+            var handler = (ICatcherHandler<TCommand, CreateCatcherResult>)handlerService;
+            return await handler.ExecuteAsync(command, new CancellationToken());
+        }
+        catch (Exception ex)
+        {
+            return CreateCatcherResult.Failed(ex.Message);
+        }
     }
 
     public async Task<TResult> ExecuteAsync<TCommand, TResult>(TCommand command) 
