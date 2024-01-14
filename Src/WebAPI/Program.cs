@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System.Net;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Stll.Shared.Configurations;
 using Stll.WebAPI.Helpers;
 using Stll.WebAPI.Registrations;
@@ -19,7 +22,7 @@ namespace Stll.WebAPI
             var configurations = configurationLoaderResponse.Value;
             
             var webHostBuilder = new WebHostBuilder();
-            
+
             webHostBuilder.UseKestrel();
             webHostBuilder.UseConfiguration(configurations);
             webHostBuilder.ConfigureAppConfiguration(b => b.AddConfiguration(configurations));
@@ -35,7 +38,7 @@ namespace Stll.WebAPI
                 services.Configure<DomainSection>(domainSection);
             });
             webHostBuilder.UseStartup<Startup>();
-            
+
             var webHost = webHostBuilder.Build();
             webHost.Run();
         }
