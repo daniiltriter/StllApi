@@ -28,4 +28,10 @@
       <ProjectReference Include="..\..\Src\CQRS\CQRS.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="CQRS">
+        <HintPath>..\..\Src\WebAPI\bin\Debug\net6.0\CQRS.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>

@@ -1,4 +1,4 @@
 ﻿namespace Stll.CQRS.Abstractions;
 
-public abstract class AbstractCatcherCommand<TResult> //: IRequest<TResult>
+public abstract class AbstractCatcherCommand //: IRequest<TResult>
 {}

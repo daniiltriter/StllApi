@@ -1,12 +1,11 @@
-﻿using Commands.Tests.Commands;
-using Stll.CQRS.Handlers;
+﻿using Stll.CQRS.Handlers;
 using Stll.CQRS.Results;
 
-namespace Commands.Tests.Handlers;
+namespace Stll.Tests.CQRS.Commands;
 
 public class CreatePingHandler : CreateCatcherHandler<CreatePingCommand>
 {
-    public override Task<CreateCatcherResult> HandleAsync(CreatePingCommand command, CancellationToken cancellationToken)
+    public override Task<CreateCatcherResult> ExecuteAsync(CreatePingCommand command, CancellationToken cancellationToken)
     {
         var result = new CreateCatcherResult()
         {

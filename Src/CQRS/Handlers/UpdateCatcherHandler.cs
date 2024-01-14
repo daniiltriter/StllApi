@@ -6,6 +6,6 @@ namespace Stll.CQRS.Handlers;
 
 public abstract class UpdateCatcherHandler : ICatcherHandler<UpdateCatcherCommand, UpdateCatcherResult>
 {
-    public abstract Task<UpdateCatcherResult> HandleAsync(UpdateCatcherCommand command, 
+    public abstract Task<UpdateCatcherResult> ExecuteAsync(UpdateCatcherCommand command, 
         CancellationToken cancellationToken);
 }

@@ -11,7 +11,7 @@ public static class ServiceCollectionExtensions
 {
     public static void AddCatcher(this IServiceCollection services,  Assembly assembly)
     {
-        services.AddSingleton<ICatcher, MediatorCatcher>();
+        services.AddSingleton<IBusinessExecutor, BusinessExecutor>();
         var assemblyTypes = assembly.GetTypes();
         foreach (var registerCandidate in assemblyTypes)
         {

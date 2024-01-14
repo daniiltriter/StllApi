@@ -1,6 +1,6 @@
-﻿using Stll.Commands.Commands;
+﻿using Stll.CQRS.Commands;
 
-namespace Commands.Tests.Commands;
+namespace Stll.Tests.CQRS.Commands;
 
 public class CreatePingCommand : CreateCatcherCommand
 {

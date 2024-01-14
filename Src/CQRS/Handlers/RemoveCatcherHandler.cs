@@ -6,6 +6,6 @@ namespace Stll.CQRS.Handlers;
 
 public abstract class RemoveCatcherHandler : ICatcherHandler<RemoveCatcherCommand, RemoveCatcherResult>
 {
-    public abstract Task<RemoveCatcherResult> HandleAsync(RemoveCatcherCommand command,
+    public abstract Task<RemoveCatcherResult> ExecuteAsync(RemoveCatcherCommand command,
         CancellationToken cancellationToken);
 }

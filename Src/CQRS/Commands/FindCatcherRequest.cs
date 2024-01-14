@@ -2,11 +2,11 @@
 
 namespace Stll.CQRS.Commands;
 
-public abstract class RemoveCatcherCommand : AbstractCatcherCommand
+public abstract class FindCatcherRequest<TEntity> : AbstractCatcherCommand
 {
     public ulong Id { get; set; }
 
-    public RemoveCatcherCommand(ulong id)
+    public FindCatcherRequest(ulong id)
     {
         Id = id;
     }

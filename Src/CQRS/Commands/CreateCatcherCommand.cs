@@ -1,9 +1,8 @@
 ﻿using Stll.CQRS.Abstractions;
-using Stll.CQRS.Results;
 
-namespace Stll.Commands.Commands;
+namespace Stll.CQRS.Commands;
 
-public class CreateCatcherCommand : AbstractCatcherCommand<CreateCatcherResult>
+public abstract class CreateCatcherCommand : AbstractCatcherCommand
 {
     
 }
