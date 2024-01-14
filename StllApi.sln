@@ -14,6 +14,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forge", "Src\Forge\Forge.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commands", "Src\Commands\Commands.csproj", "{B35DCD9A-3AE4-4DC6-AAD0-1F505901EFA7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2E4C87B0-CCE1-4DD8-B76D-4FE09694595C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.Tests", "Tests\CQRS.Tests\CQRS.Tests.csproj", "{F9A67EC7-3C49-4EB6-8D5C-87F482B044E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{3291982C-278B-4B53-966C-A4F932E2BB00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,7 +54,13 @@ Global
 		{B35DCD9A-3AE4-4DC6-AAD0-1F505901EFA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B35DCD9A-3AE4-4DC6-AAD0-1F505901EFA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B35DCD9A-3AE4-4DC6-AAD0-1F505901EFA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A67EC7-3C49-4EB6-8D5C-87F482B044E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A67EC7-3C49-4EB6-8D5C-87F482B044E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A67EC7-3C49-4EB6-8D5C-87F482B044E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A67EC7-3C49-4EB6-8D5C-87F482B044E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{3291982C-278B-4B53-966C-A4F932E2BB00} = {2E4C87B0-CCE1-4DD8-B76D-4FE09694595C}
+		{F9A67EC7-3C49-4EB6-8D5C-87F482B044E4} = {3291982C-278B-4B53-966C-A4F932E2BB00}
 	EndGlobalSection
 EndGlobal

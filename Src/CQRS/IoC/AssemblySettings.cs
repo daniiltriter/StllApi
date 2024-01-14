@@ -5,7 +5,10 @@ namespace Stll.WebAPI.Commands.IoC;
 
 public class AssemblySettings
 {
-    private readonly ICollection<Assembly> _assemblies = new HashSet<Assembly>();
+    private readonly ICollection<Assembly> _assemblies = new HashSet<Assembly>
+    {
+        typeof(AssemblySettings).Assembly
+    };
 
     public void RegisterAssembly(Assembly assembly)
     {

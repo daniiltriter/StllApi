@@ -21,7 +21,7 @@ public class MediatorCatcher : ICatcher
         catch (Exception ex)
         {
             var errorResult = new TResult();
-            errorResult.HasError = true;
+            errorResult.Processed = false;
             errorResult.ErrorMessage = ex.Message;
             return errorResult;
         }
