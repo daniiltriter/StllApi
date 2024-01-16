@@ -42,11 +42,21 @@ public class BusinessExecutor : IBusinessExecutor
         }
     }
 
-    public Task<FindCatcherResult<TModel>> FindSendAsync<TCommand, TModel>(FindCatcherRequest<TModel> request) 
-        where TCommand : FindCatcherRequest<TModel>
+    public async Task<FindCatcherResult<TModel>> FindSendAsync<TRequest, TModel>(TRequest request) 
+        where TRequest : FindCatcherRequest<TModel>
         where TModel : IBusinessModel
     {
-        throw new NotImplementedException();
+        try
+        {
+            var handlerType = typeof(ICatcherHandler<,>).MakeGenericType(request.GetType(), typeof(FindCatcherResult<TModel>));
+            var handlerService = _services.GetService(handlerType) ;
+            var handler = (ICatcherHandler<TRequest, FindCatcherResult<TModel>>)handlerService;
+            return await handler.ExecuteAsync(request, new CancellationToken());
+        }
+        catch (Exception ex)
+        {
+            return FindCatcherResult<TModel>.Failed(ex.Message);
+        }
     }
 
     public Task<RemoveCatcherResult> RemoveSendAsync<TCommand>(TCommand command) where TCommand : RemoveCatcherCommand

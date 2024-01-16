@@ -26,6 +26,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Commands\Commands.csproj" />
       <ProjectReference Include="..\Forge\Forge.csproj" />
+      <ProjectReference Include="..\Requests\Requests.csproj" />
     </ItemGroup>
 
 </Project>

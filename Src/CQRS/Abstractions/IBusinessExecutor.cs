@@ -6,12 +6,12 @@ namespace Stll.CQRS.Abstractions;
 
 public interface IBusinessExecutor
 {
-    Task<GetCatcherResult<TModel>> GetSendAsync<TCommand, TModel>(TCommand command)
-        where TCommand : GetCatcherRequest<TModel>
+    Task<GetCatcherResult<TModel>> GetSendAsync<TRequest, TModel>(TRequest request)
+        where TRequest : GetCatcherRequest<TModel>
         where TModel : IBusinessModel;
 
-    Task<FindCatcherResult<TModel>> FindSendAsync<TCommand, TModel>(FindCatcherRequest<TModel> request)
-        where TCommand : FindCatcherRequest<TModel>
+    Task<FindCatcherResult<TModel>> FindSendAsync<TRequest, TModel>(TRequest request)
+        where TRequest : FindCatcherRequest<TModel>
         where TModel : IBusinessModel;
     
     Task<RemoveCatcherResult> RemoveSendAsync<TCommand>(TCommand command)

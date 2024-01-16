@@ -2,12 +2,15 @@
 
 public static class UsersErrorCodes
 {
+    public const string NOT_FOUND = "UserNotFound";
+    
     public const string NAME_IS_EMPTY = "NameIsEmpty";
-    public const string NAME_INVALID_LENGTH = "InvalidNameLength";
+    public const string INVALID_NAME_LENGTH = "InvalidNameLength";
     
     public const string PASSWORD_IS_EMPTY = "PasswordIsEmpty";
-    public const string PASSWORD_INVALID_LENGTH = "InvalidPasswordLenth";
+    public const string INVALID_PASSWORD_LENGTH = "InvalidPasswordLenth";
     public const string PASSWORD_UNSECURE = "UnsecurePassword";
+    public const string INVALID_PASSWORD = "InvalidPassword";
     
-    public const string USER_ALREADY_EXISTS = "UserAlreadyExists";
+    public const string ALREADY_EXISTS = "UserAlreadyExists";
 }

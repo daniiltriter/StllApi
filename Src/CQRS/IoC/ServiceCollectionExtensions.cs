@@ -1,6 +1,4 @@
 ﻿using System.Reflection;
-using AutoMapper.Internal;
-using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Stll.CQRS.Abstractions;
 using Stll.CQRS.Services;
@@ -9,9 +7,17 @@ namespace Stll.CQRS.Commands.IoC;
 
 public static class ServiceCollectionExtensions
 {
-    public static void AddCatcher(this IServiceCollection services,  Assembly assembly)
+    public static void AddBusinessExecutor(this IServiceCollection services, params Assembly[] assemblies)
     {
         services.AddSingleton<IBusinessExecutor, BusinessExecutor>();
+        foreach (var assembly in assemblies)
+        {
+            services.RegisterCandidates(assembly);
+        }
+    }
+
+    private static void RegisterCandidates(this IServiceCollection services, Assembly assembly)
+    {
         var assemblyTypes = assembly.GetTypes();
         foreach (var registerCandidate in assemblyTypes)
         {

@@ -13,7 +13,7 @@ public class ExecuteCatcherTests
     public async Task Create_command_can_be_executed_as_custom()
     {
         var container = new ServiceCollection();
-        container.AddCatcher(typeof(ExecuteCatcherTests).Assembly);
+        container.AddBusinessExecutor(typeof(ExecuteCatcherTests).Assembly);
         var services = container.BuildServiceProvider();
         
         
@@ -31,7 +31,7 @@ public class ExecuteCatcherTests
     public async Task Create_command_can_be_executed()
     {
         var container = new ServiceCollection();
-        container.AddCatcher(typeof(ExecuteCatcherTests).Assembly);
+        container.AddBusinessExecutor(typeof(ExecuteCatcherTests).Assembly);
         var services = container.BuildServiceProvider();
 
         var catcher = services.GetService<IBusinessExecutor>();

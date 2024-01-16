@@ -4,9 +4,10 @@ using Stll.CQRS.Results;
 
 namespace Stll.CQRS.Handlers;
 
-public abstract class FindCatcherHandler<TModel> : ICatcherHandler<FindCatcherRequest<TModel>, FindCatcherResult<TModel>>
+public abstract class FindCatcherHandler<TRequest, TModel> : ICatcherHandler<TRequest, FindCatcherResult<TModel>>
+     where TRequest : FindCatcherRequest<TModel>
      where TModel : IBusinessModel
 {
-    public abstract Task<FindCatcherResult<TModel>> ExecuteAsync(FindCatcherRequest<TModel> request,
+    public abstract Task<FindCatcherResult<TModel>> ExecuteAsync(TRequest request,
         CancellationToken cancellationToken);
 }

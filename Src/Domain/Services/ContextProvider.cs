@@ -33,7 +33,7 @@ public class ContextProvider<TEntity, TContext> : IContextProvider<TEntity>
         return newEntity.Entity.Id;
     }
 
-    public async Task<bool> UpdateAsync(TEntity entity)
+    public async Task<uint> UpdateAsync(TEntity entity)
     {
         if (entity is null)
         {
@@ -46,7 +46,7 @@ public class ContextProvider<TEntity, TContext> : IContextProvider<TEntity>
         context.Set<TEntity>().Update(entity);
         var affectedCount = await context.SaveChangesAsync();
         
-        return affectedCount > 0;
+        return (uint)affectedCount;
     }
 
     public async Task<bool> RemoveAsync(ulong id)

@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using AutoMapper;
-using MediatR;
+using Stll.CQRS.Abstractions;
 using Stll.WebAPI.Commands;
 using Stll.Domain.Abstractions;
 using Stll.Shared.Services;
@@ -9,7 +9,7 @@ using Stll.Types.Variables;
 
 namespace Stll.Commands.Users;
 
-public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, CreateHandlerResult>
+public class RegisterUserHandler : IExecutorHandler<RegisterUserCommand, CreateHandlerResult>
 {
     private readonly IMapper _mapper;
     private readonly IPasswordHasher _hasher;
@@ -34,14 +34,14 @@ public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, CreateHa
         var nameLengthInvalid = request.Name.Length < 6 || request.Name.Length > 32;
         if (nameLengthInvalid)
         {
-            return CreateHandlerResult.Failed(UsersErrorCodes.NAME_INVALID_LENGTH);
+            return CreateHandlerResult.Failed(UsersErrorCodes.INVALID_NAME_LENGTH);
         }
         
         // TODO: add Exists method to IDomainService
         var userIsExists = await _domain.GetContextFor<User>().AnyAsync(u => u.Name == request.Name);
         if (userIsExists)
         {
-            return CreateHandlerResult.Failed(UsersErrorCodes.USER_ALREADY_EXISTS);
+            return CreateHandlerResult.Failed(UsersErrorCodes.ALREADY_EXISTS);
         }
 
         var passwordUnfilled = string.IsNullOrWhiteSpace(request.Password);
@@ -53,7 +53,7 @@ public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, CreateHa
         var passwordLengthInvalid = request.Password.Length < 6 || request.Password.Length > 128;
         if (passwordLengthInvalid)
         {
-            return CreateHandlerResult.Failed(UsersErrorCodes.PASSWORD_INVALID_LENGTH);
+            return CreateHandlerResult.Failed(UsersErrorCodes.INVALID_PASSWORD_LENGTH);
         }
 
         var passwordIsUnsecure = !Regex.IsMatch(request.Password, RegexPatterns.SECURED_PASSWORD);
