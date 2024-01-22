@@ -24,6 +24,13 @@ public static class ServiceCollectionExtensions
             var sqlVersion = ServerVersion.AutoDetect(dbConnectionString);
             options.UseMySql(dbConnectionString, sqlVersion);
         });
+
+        // TODO: divide ef core and redis logic
+        services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = "localhost";
+            options.InstanceName = "local";
+        });
         
         return DomainServiceBuilder<TContext>.Initialize(services);
     }

@@ -18,13 +18,6 @@ public class DomainStartupModule : IStartupModule
     }
     public void Apply(IServiceCollection services)
     {
-        // services.AddDbContext<ApplicationContext>(options =>
-        // {
-        //     var dbConnectionString = _settings.Value.Domain.Connection;
-        //
-        //     var sqlVersion = ServerVersion.AutoDetect(dbConnectionString);
-        //     options.UseMySql(dbConnectionString, sqlVersion);
-        // });
 
         var domainBuilder = services.AddDomainContext<ApplicationContext>(settings =>
         {
@@ -32,5 +25,6 @@ public class DomainStartupModule : IStartupModule
         });
 
         domainBuilder.AddEntity<User>();
+        domainBuilder.InMemory<User>();
     }
 }

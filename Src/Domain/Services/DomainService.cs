@@ -13,5 +13,10 @@ public class DomainService : IDomainService
     public IContextProvider<TEntity> GetContextFor<TEntity>() where TEntity : class, IEntity
     {
         return _services.GetService<IContextProvider<TEntity>>();
+    }   
+
+    public IMemoryProvider<TEntity> GetCacheFor<TEntity>() where TEntity : class, IEntity
+    {
+        return _services.GetService<IMemoryProvider<TEntity>>();
     }
 }

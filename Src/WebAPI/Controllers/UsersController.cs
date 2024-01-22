@@ -25,7 +25,7 @@ public class UsersController : Controller
     }
 
     [HttpPatch]
-    //[Authorize]
+    [Authorize]
     public async Task<ActionResult> UpdateAsync(UpdateUserEndpointRequest request)
     {
         var preparedCommand = _mapper.Map(request, new UpdateUserCommand());
@@ -40,7 +40,7 @@ public class UsersController : Controller
     }
 
     [HttpGet]
-    //[Authorize]
+    [Authorize]
     public async Task<ActionResult<UserViewModel>> GetByIdAsync(ulong id)
     {
         // TODO: make a service for Actor info getting

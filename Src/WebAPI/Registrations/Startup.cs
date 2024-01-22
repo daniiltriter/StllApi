@@ -23,7 +23,7 @@ public class Startup
 
         if (System.Diagnostics.Debugger.IsAttached)
         {
-            servicesBuilder.ApplyModule(new SwaggerStartupModule());
+            servicesBuilder.ApplyModule(new SwaggerStartupModule());    
         }
         servicesBuilder.ApplyModule(new ServicesStartupModule());
         servicesBuilder.ApplyModule(new AuthenticateStartupModule(_configuration));

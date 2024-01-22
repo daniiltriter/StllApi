@@ -15,7 +15,13 @@ public class DomainServiceBuilder<TContext> where TContext: DbContext
 
     public DomainServiceBuilder<TContext> AddEntity<TEntity>() where TEntity: class, IEntity
     {
-        Services.AddScoped<IContextProvider<TEntity>, ContextProvider<TEntity, TContext>>();
+        Services.AddTransient<IContextProvider<TEntity>, ContextProvider<TEntity, TContext>>();
+        return this;
+    }
+    
+    public DomainServiceBuilder<TContext> InMemory<TEntity>() where TEntity: class, IEntity
+    {
+        Services.AddTransient<IMemoryProvider<TEntity>, MemoryProvider<TEntity>>();
         return this;
     }
 
