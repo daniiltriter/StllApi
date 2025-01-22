@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Stll.Types;
 
-namespace Stll.Forge.Configurations;
+namespace Stll.Infrastructure.Configurations;
 
 public class UserEntityConfiguration : IEntityTypeConfiguration<User>
 {

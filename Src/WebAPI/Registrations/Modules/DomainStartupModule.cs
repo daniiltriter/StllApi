@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Stll.Domain.IoC;
-using Stll.Forge;
+using Stll.Infrastructure;
 using Stll.Shared.Configurations;
 using Stll.Types;
 using Stll.WebAPI.Registrations.Abstractions;
